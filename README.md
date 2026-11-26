@@ -1,5 +1,4 @@
-<!-- Sustituir URL_MATLAB por el vínculo de MATLAB Online -->
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](URL_MATLAB)
+
 
 <div align="center">
 
@@ -21,8 +20,12 @@
 
 | Campo | Información |
 |:--|:--|
-| **Estudiante(s)** | [Agregar nombres] |
-| **Número(s) de control** | [Agregar números de control] |
+| **Estudiante(s)** | Ivana Valeria Ibarra Monroy
+                      Maria Luisa Michelle Muñoz Meneses
+                      Zulema Guadalupe Tirado Manzo|
+| **Número(s) de control** | 23210709 
+                             23210714
+                             23210724|
 | **Asignatura** | Modelado de Sistemas Fisiológicos (IBF-1020) |
 | **Docente** | Dr. Paul Antonio Valle Trujillo |
 | **Institución** | Tecnológico Nacional de México · Instituto Tecnológico de Tijuana |
@@ -36,7 +39,7 @@
 
 Se desarrolla un modelo dinámico de cuarto orden del sistema respiratorio mediante cuatro resistencias, dos inductancias y dos capacitancias, considerando además la resistencia interna del primer inductor. Se comparan las condiciones **control (pulmón sano)** y **caso (fibrosis pulmonar)** ante una entrada periódica que representa ciclos respiratorios. Se obtienen las funciones de transferencia, las ecuaciones integrodiferenciales y la representación en espacio de estados. Posteriormente se incorpora un controlador PID filtrado para aproximar la respuesta del caso a la referencia sana. Se emplean MATLAB, Simulink, Python y BioRender para documentar el modelo.
 
-**Palabras clave:** sistema respiratorio · fibrosis pulmonar · mecánica pulmonar · analogía eléctrica · circuito RLC · cuarto orden · resistencia · inductancia · capacitancia · función de transferencia · ecuaciones integrodiferenciales · espacio de estados · control PID · MATLAB · Simulink · Python · BioRender.
+**Palabras clave:** sistema respiratorio · fibrosis pulmonar · mecánica pulmonar · analogía eléctrica
 
 ## 03 / OBJETIVOS Y ALCANCE
 
@@ -57,8 +60,8 @@ El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseos
 
 ### ESPACIO PARA FIGURA 01 · BIORENDER
 
-<!-- Pegar aquí la imagen de BioRender -->
-<!-- ![Modelo fisiológico](biorender.png) -->
+<img width="720" height="504" alt="WhatsApp Image 2026-11-26 at 1 53 07 PM" src="https://github.com/user-attachments/assets/7fdbe980-4677-4f30-b7cc-be65ed8bff34" />
+
 
 *Figura 01. Comparación anatómica entre pulmón sano y pulmón con fibrosis, con identificación de los elementos eléctricos equivalentes.*
 
@@ -90,7 +93,7 @@ El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseos
 
 ### ESPACIO PARA FIGURA 02 · CIRCUITOS EN SIMULINK
 
-<!-- Pegar captura de los circuitos RLC -->
+
 
 *Figura 02. Circuitos equivalentes de control y caso.*
 
