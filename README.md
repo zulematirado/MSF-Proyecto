@@ -31,7 +31,7 @@
 
 > **Objetivo central:** representar la dinámica pulmonar mediante un circuito eléctrico RLC equivalente, comparar un pulmón sano con un pulmón con fibrosis y evaluar la compensación mediante un controlador PID.
 
-## 02 / RESUMEN EJECUTIVO
+## 02 / RESUMEN 
 
 Se desarrolla un modelo dinámico de cuarto orden del sistema respiratorio mediante cuatro resistencias, dos inductancias y dos capacitancias, considerando además la resistencia interna del primer inductor. Se comparan las condiciones **control (pulmón sano)** y **caso (fibrosis pulmonar)** ante una entrada periódica que representa ciclos respiratorios. Se obtienen las funciones de transferencia, las ecuaciones integrodiferenciales y la representación en espacio de estados. Posteriormente se incorpora un controlador PID filtrado para aproximar la respuesta del caso a la referencia sana. Se emplean MATLAB, Simulink, Python y BioRender para documentar el modelo.
 
