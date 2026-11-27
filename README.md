@@ -1,28 +1,44 @@
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/)
+<!-- Sustituir URL_MATLAB por el vínculo de MATLAB Online -->
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](URL_MATLAB)
 
-# Proyecto final: Modelado y control del sistema respiratorio
+<div align="center">
 
-## Información de las estudiantes
+# 🫁 MODELADO Y CONTROL DEL SISTEMA RESPIRATORIO
 
-[Agregar nombres, números de control y correos institucionales]
+### PROYECTO FINAL · MODELADO DE SISTEMAS FISIOLÓGICOS
 
-Modelado de Sistemas Fisiológicos (IBF-1020)
+**INGENIERÍA BIOMÉDICA · TECNM / INSTITUTO TECNOLÓGICO DE TIJUANA**
 
-Ingeniería Biomédica
+![MATLAB](https://img.shields.io/badge/MATLAB-Simulink-0076A8?style=for-the-badge) ![Python](https://img.shields.io/badge/Python-Control-3776AB?style=for-the-badge) ![PID](https://img.shields.io/badge/Control-PID-1F2937?style=for-the-badge) ![Status](https://img.shields.io/badge/Proyecto-Académico-64748B?style=for-the-badge)
 
-## Docente
+*Dinámica respiratoria · Analogía eléctrica · Sistemas de cuarto orden · Control retroalimentado*
 
-Dr. Paul Antonio Valle Trujillo; paul.valle@tectijuana.edu.mx
+</div>
 
-Departamento de Ingeniería Eléctrica y Electrónica, Tecnológico Nacional de México / Instituto Tecnológico de Tijuana, Blvd. Alberto Limón Padilla s/n, Tijuana, C.P. 22454, B.C., México.
+---
 
-## Descripción de la asignatura
+## 01 / FICHA DEL PROYECTO
+
+| Campo | Información |
+|:--|:--|
+| **Estudiante(s)** | [Agregar nombres] |
+| **Número(s) de control** | [Agregar números de control] |
+| **Asignatura** | Modelado de Sistemas Fisiológicos (IBF-1020) |
+| **Docente** | Dr. Paul Antonio Valle Trujillo |
+| **Institución** | Tecnológico Nacional de México · Instituto Tecnológico de Tijuana |
+| **Programa** | Ingeniería Biomédica |
+| **Ubicación** | Tijuana, Baja California, México |
+| **Proyecto** | Modelado y control del sistema respiratorio |
+
+> **Objetivo central:** representar la dinámica pulmonar mediante un circuito eléctrico RLC equivalente, comparar un pulmón sano con un pulmón con fibrosis y evaluar la compensación mediante un controlador PID.
+
+## 02 / RESUMEN EJECUTIVO
 
 Se desarrolla un modelo dinámico de cuarto orden del sistema respiratorio mediante cuatro resistencias, dos inductancias y dos capacitancias, considerando además la resistencia interna del primer inductor. Se comparan las condiciones **control (pulmón sano)** y **caso (fibrosis pulmonar)** ante una entrada periódica que representa ciclos respiratorios. Se obtienen las funciones de transferencia, las ecuaciones integrodiferenciales y la representación en espacio de estados. Posteriormente se incorpora un controlador PID filtrado para aproximar la respuesta del caso a la referencia sana. Se emplean MATLAB, Simulink, Python y BioRender para documentar el modelo.
 
 **Palabras clave:** sistema respiratorio · fibrosis pulmonar · mecánica pulmonar · analogía eléctrica · circuito RLC · cuarto orden · resistencia · inductancia · capacitancia · función de transferencia · ecuaciones integrodiferenciales · espacio de estados · control PID · MATLAB · Simulink · Python · BioRender.
 
-## Objetivos
+## 03 / OBJETIVOS Y ALCANCE
 
 **Objetivo general.** Modelar y comparar la dinámica del pulmón sano y del pulmón con fibrosis, implementando un controlador PID para reducir el error de seguimiento.
 
@@ -35,11 +51,11 @@ Se desarrolla un modelo dinámico de cuarto orden del sistema respiratorio media
 - Comparar las respuestas de entrada, control, caso y tratamiento.
 - Documentar la representación anatómica y las evidencias de simulación.
 
-## Descripción detallada del sistema
+## 04 / ARQUITECTURA FISIOLÓGICA
 
 El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseoso. La fibrosis pulmonar produce cicatrización del tejido y disminución de su distensibilidad, dificultando la expansión pulmonar. En este proyecto se utiliza una analogía eléctrica para estudiar cambios en la respuesta dinámica.
 
-### Figura 1. Biorender
+### ESPACIO PARA FIGURA 01 · BIORENDER
 
 <!-- Pegar aquí la imagen de BioRender -->
 <!-- ![Modelo fisiológico](biorender.png) -->
@@ -48,7 +64,7 @@ El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseos
 
 **Nota de interpretación:** las capacitancias son parámetros equivalentes de almacenamiento dinámico. Su incremento numérico en el caso no debe interpretarse como un aumento de la distensibilidad fisiológica real. El modelo es académico y no está validado clínicamente.
 
-## Modelo eléctrico
+## 05 / MODELO ELÉCTRICO
 
 | Variable | Interpretación simplificada |
 |:--|:--|
@@ -72,13 +88,13 @@ El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseos
 | C₂ (F) | 0.16 | 0.4 |
 | Resistencia interna de L₁ (Ω) | 0.5 | 0.5 |
 
-### Figura 2. Circuitos en simulink
+### ESPACIO PARA FIGURA 02 · CIRCUITOS EN SIMULINK
 
 <!-- Pegar captura de los circuitos RLC -->
 
 *Figura 02. Circuitos equivalentes de control y caso.*
 
-## Análisis matemático completo
+## 06 / ANÁLISIS MATEMÁTICO COMPLETO
 
 ### 1. Variables, nodos y condiciones iniciales
 
@@ -289,11 +305,11 @@ $$
  C_s=C_f=\begin{bmatrix}2&0.3&0&0\end{bmatrix},\qquad D_s=D_f=0
 $$
 
-### Figura 3. Ecuaciones integrodiferenciales
+### ESPACIO PARA FIGURA 03 · ECUACIONES INTEGRODIFERENCIALES
 
 <!-- ![Bloques de integradores](integradores.png) -->
 
-## Análisis dinámico y error en estado estacionario
+## 07 / ANÁLISIS DINÁMICO Y ERROR EN ESTADO ESTACIONARIO
 
 ### 9. Error en lazo abierto ante escalón unitario
 
@@ -314,31 +330,27 @@ $$
 **Control:**
 
 $$
- V_{s,sano}(\infty)=\frac2{4.5}=\frac{4}{9}\approx0.444444
+ V_{s,sano}(\infty)=\frac2{4.5}=\frac49\approx0.444444
 $$
 
 $$
- \boxed{e_{ss,sano}=1-\frac{4}{9}=\frac{5}{9}\approx0.555556}
+ \boxed{e_{ss,sano}=1-\frac49=\frac59\approx0.555556=55.5556\%}
 $$
-
-El error del control equivale al 55.5556 % de la entrada.
 
 **Caso:**
 
 $$
- V_{s,fibrosis}(\infty)=\frac2{7.5}=\frac{4}{15}\approx0.266667
+ V_{s,fibrosis}(\infty)=\frac2{7.5}=\frac4{15}\approx0.266667
 $$
 
 $$
- \boxed{e_{ss,fibrosis}=1-\frac{4}{15}=\frac{11}{15}\approx0.733333}
+ \boxed{e_{ss,fibrosis}=1-\frac4{15}=\frac{11}{15}\approx0.733333=73.3333\%}
 $$
-
-El error del caso equivale al 73.3333 % de la entrada.
 
 **Diferencia entre control y caso:**
 
 $$
- e_{ref}(\infty)=\frac{4}{9}-\frac{4}{15}=\frac{8}{45}\approx0.177778
+ e_{ref}(\infty)=\frac49-\frac4{15}=\frac8{45}\approx0.177778
 $$
 
 $$
@@ -404,23 +416,35 @@ $$
 
 La respuesta periódica no converge a un valor constante; por eso el error estacionario de escalón y el error de seguimiento periódico se analizan por separado.
 
-## Simulación en MATLAB y Simulink
+## 08 / SIMULACIÓN EN MATLAB Y SIMULINK
 
 **Configuración:** entrada sinusoidal desplazada, intervalo de 0 a 12 s, solver `ode15s` y paso máximo de `1e-3` s.
 
-### Figura 4. Scope de simulink
+```matlab
+clc; clear; close all;
+warning('off','all')
+modelo = 'Proyecto1';
+open_system(modelo)
+parameters.StopTime = '12';
+parameters.Solver = 'ode15s';
+parameters.MaxStep = '1e-3';
+parameters.ReturnWorkspaceOutputs = 'on';
+x = sim(modelo,parameters);
+```
+
+### ESPACIO PARA FIGURA 04 · SCOPE DE SIMULINK
 
 <!-- Pegar captura de las seis señales del Scope -->
 
 *Figura 04. Comparación de la entrada, los circuitos RLC, las ecuaciones integrodiferenciales y el tratamiento PID.*
 
-### Figura 5. Cuadernillo matlab
+### ESPACIO PARA FIGURA 05 · CUADERNILLO MATLAB
 
 <!-- Pegar gráfica de las cuatro señales del cuadernillo -->
 
 *Figura 05. Entrada, control, caso y tratamiento PID.*
 
-## Controlador PID
+## 09 / DISEÑO DEL CONTROLADOR PID
 
 La respuesta del pulmón sano se utiliza como referencia del tratamiento:
 
@@ -505,21 +529,38 @@ $$
 
 Los errores reportados proceden de la sintonización previa a redondear las ganancias; pueden variar ligeramente con el paso de simulación.
 
-### Figura 6. Controlador pid
+### ESPACIO PARA FIGURA 06 · CONTROLADOR PID
 
 <!-- Pegar captura del controlador y lazo cerrado -->
 
-## Verificación en Python
+## 10 / VERIFICACIÓN EN PYTHON
 
 Se utilizan las bibliotecas `numpy`, `math`, `control` y `matplotlib`.
 
-### Figura 7. Gráfica python
+```python
+import numpy as np
+import control as ctrl
+
+sysControl = ctrl.tf([0.3, 2], [0.0192, 0.2968, 1.578, 3.72, 4.5])
+sysCaso = ctrl.tf([0.3, 2], [0.15, 1.985, 7.305, 12.7, 7.5])
+Kp, Ki, Kd, Nf = 100000, 0.0761, 99359, 50108
+s = ctrl.tf('s')
+C_pid = Kp + Ki/s + Kd*Nf*s/(s+Nf)
+sysTratamiento = ctrl.feedback(ctrl.series(C_pid, sysCaso), 1)
+t = np.linspace(0, 12, 12001)
+u = 0.5*(1-np.cos(2*np.pi*0.25*t))
+_, Control = ctrl.forced_response(sysControl, t, u)
+_, Caso = ctrl.forced_response(sysCaso, t, u)
+_, Tratamiento = ctrl.forced_response(sysTratamiento, t, Control)
+```
+
+### ESPACIO PARA FIGURA 07 · GRÁFICA PYTHON
 
 <!-- Pegar gráfica de Python -->
 
 *Figura 07. Comparación de las cuatro señales: entrada, control, caso y tratamiento.*
 
-## Resultados y evidencia
+## 11 / RESULTADOS Y EVIDENCIA
 
 | Escenario | Resultado del modelo |
 |:--|:--|
@@ -538,19 +579,29 @@ Se utilizan las bibliotecas `numpy`, `math`, `control` y `matplotlib`.
 
 Los indicadores corresponden a la optimización numérica reportada, no a una medición experimental. Las ganancias elevadas requieren una evaluación adicional de robustez, ruido y saturación antes de considerar una implementación física.
 
-### Figura 8. Osciloscopio (si aplica)
+### ESPACIO PARA FIGURA 08 · OSCILOSCOPIO (SI APLICA)
 
 <!-- Pegar evidencia experimental si se dispone de ella -->
 
 *Figura 08. Evidencia de laboratorio, si está disponible.*
 
-## Conclusión
+## 12 / CONCLUSIONES
 
 El circuito eléctrico equivalente permitió representar la dinámica respiratoria mediante un sistema de cuarto orden. La comparación entre control y caso mostró diferencias en la amplitud y dinámica de la respuesta. Las ecuaciones integrodiferenciales permitieron reproducir visualmente las respuestas de los circuitos en Simulink. El controlador PID aproximó la respuesta del caso a la referencia sana con un error de seguimiento reducido en la optimización numérica. MATLAB, Simulink, Python y BioRender complementan el análisis y su interpretación. Los resultados tienen alcance académico y no constituyen una validación clínica ni una propuesta terapéutica para la fibrosis pulmonar.
 
-## Referencias
+## 13 / REFERENCIAS
 
 1. Valle Trujillo, P. A. (2026). *Modelado de Sistemas Fisiológicos (IBF-1020)*. Material de la asignatura, Instituto Tecnológico de Tijuana.
 2. [Repositorio académico MSF-IBF1020](https://github.com/DrPaulValle/MSF-IBF1020).
 3. [MathWorks — Control System Toolbox](https://www.mathworks.com/products/control.html).
 4. [Python Control Systems Library](https://python-control.readthedocs.io/).
+
+---
+
+<div align="center">
+
+**MODELADO DE SISTEMAS FISIOLÓGICOS · PROYECTO FINAL**
+
+*Ingeniería Biomédica · Instituto Tecnológico de Tijuana*
+
+</div>
