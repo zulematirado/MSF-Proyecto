@@ -54,7 +54,7 @@ Se desarrolla un modelo dinámico de cuarto orden del sistema respiratorio media
 
 El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseoso. La fibrosis pulmonar produce cicatrización del tejido y disminución de su distensibilidad, dificultando la expansión pulmonar. En este proyecto se utiliza una analogía eléctrica para estudiar cambios en la respuesta dinámica.
 
-### ESPACIO PARA FIGURA 01 · BIORENDER
+###  BIORENDER
 
 <img width="1048" height="732" alt="image" src="https://github.com/user-attachments/assets/c079bc0c-2408-4f3c-8da4-72913ee6fc7b" />
 
@@ -86,7 +86,7 @@ El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseos
 | C₂ (F) | 0.16 | 0.4 |
 | Resistencia interna de L₁ (Ω) | 0.5 | 0.5 |
 
-### ESPACIO PARA FIGURA 02 · CIRCUITO SANO Y FIBROSIS EN SIMULINK
+###  CIRCUITO SANO Y FIBROSIS EN SIMULINK
 
 <img width="831" height="363" alt="image" src="https://github.com/user-attachments/assets/46f25bdf-f920-4530-a04b-9b1192e233bd" />
 <img width="819" height="387" alt="image" src="https://github.com/user-attachments/assets/79a4c358-6ccd-4bfe-b5d0-b08c8ecfb8d3" />
@@ -326,9 +326,7 @@ $$
  V_{s,sano}(\infty)=\frac2{4.5}=\frac49\approx0.444444
 $$
 
-$$
- \boxed{e_{ss,sano}=1-\frac49=\frac59\approx0.555556=55.5556\%}
-$$
+
 
 **Caso:**
 
@@ -336,18 +334,12 @@ $$
  V_{s,fibrosis}(\infty)=\frac2{7.5}=\frac4{15}\approx0.266667
 $$
 
-$$
- \boxed{e_{ss,fibrosis}=1-\frac4{15}=\frac{11}{15}\approx0.733333=73.3333\%}
-$$
+
 
 **Diferencia entre control y caso:**
 
 $$
  e_{ref}(\infty)=\frac49-\frac4{15}=\frac8{45}\approx0.177778
-$$
-
-$$
- \frac{8/45}{4/9}(100)=\boxed{40\%}
 $$
 
 El 40 % es la reducción de ganancia estática respecto al pulmón sano, no el error porcentual respecto a la entrada ni la reducción de amplitud de la señal periódica.
