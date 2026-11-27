@@ -1,5 +1,4 @@
-<!-- Sustituir URL_MATLAB por el vínculo de MATLAB Online -->
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](URL_MATLAB)
+
 
 <div align="center">
 
@@ -21,8 +20,8 @@
 
 | Campo | Información |
 |:--|:--|
-| **Estudiante(s)** | [Agregar nombres] |
-| **Número(s) de control** | [Agregar números de control] |
+| **Estudiante(s)** | Ivana Valeria Ibarra Monroy, Maria Luisa Michelle Muñoz Meneses, Zulema Guadalupe Tirado Manzo |
+| **Número(s) de control** | 23210709, 23210714, 23210724 |
 | **Asignatura** | Modelado de Sistemas Fisiológicos (IBF-1020) |
 | **Docente** | Dr. Paul Antonio Valle Trujillo |
 | **Institución** | Tecnológico Nacional de México · Instituto Tecnológico de Tijuana |
@@ -36,7 +35,7 @@
 
 Se desarrolla un modelo dinámico de cuarto orden del sistema respiratorio mediante cuatro resistencias, dos inductancias y dos capacitancias, considerando además la resistencia interna del primer inductor. Se comparan las condiciones **control (pulmón sano)** y **caso (fibrosis pulmonar)** ante una entrada periódica que representa ciclos respiratorios. Se obtienen las funciones de transferencia, las ecuaciones integrodiferenciales y la representación en espacio de estados. Posteriormente se incorpora un controlador PID filtrado para aproximar la respuesta del caso a la referencia sana. Se emplean MATLAB, Simulink, Python y BioRender para documentar el modelo.
 
-**Palabras clave:** sistema respiratorio · fibrosis pulmonar · mecánica pulmonar · analogía eléctrica · circuito RLC · cuarto orden · resistencia · inductancia · capacitancia · función de transferencia · ecuaciones integrodiferenciales · espacio de estados · control PID · MATLAB · Simulink · Python · BioRender.
+**Palabras clave:** sistema respiratorio · fibrosis pulmonar · mecánica pulmonar · analogía eléctrica.
 
 ## 03 / OBJETIVOS Y ALCANCE
 
@@ -57,12 +56,11 @@ El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseos
 
 ### ESPACIO PARA FIGURA 01 · BIORENDER
 
-<!-- Pegar aquí la imagen de BioRender -->
-<!-- ![Modelo fisiológico](biorender.png) -->
+<img width="1048" height="732" alt="image" src="https://github.com/user-attachments/assets/c079bc0c-2408-4f3c-8da4-72913ee6fc7b" />
+
 
 *Figura 01. Comparación anatómica entre pulmón sano y pulmón con fibrosis, con identificación de los elementos eléctricos equivalentes.*
 
-**Nota de interpretación:** las capacitancias son parámetros equivalentes de almacenamiento dinámico. Su incremento numérico en el caso no debe interpretarse como un aumento de la distensibilidad fisiológica real. El modelo es académico y no está validado clínicamente.
 
 ## 05 / MODELO ELÉCTRICO
 
@@ -88,11 +86,10 @@ El sistema respiratorio permite la ventilación pulmonar y el intercambio gaseos
 | C₂ (F) | 0.16 | 0.4 |
 | Resistencia interna de L₁ (Ω) | 0.5 | 0.5 |
 
-### ESPACIO PARA FIGURA 02 · CIRCUITOS EN SIMULINK
+### ESPACIO PARA FIGURA 02 · CIRCUITO SANO Y FIBROSIS EN SIMULINK
 
-<!-- Pegar captura de los circuitos RLC -->
-
-*Figura 02. Circuitos equivalentes de control y caso.*
+<img width="831" height="363" alt="image" src="https://github.com/user-attachments/assets/46f25bdf-f920-4530-a04b-9b1192e233bd" />
+<img width="819" height="387" alt="image" src="https://github.com/user-attachments/assets/79a4c358-6ccd-4bfe-b5d0-b08c8ecfb8d3" />
 
 ## 06 / ANÁLISIS MATEMÁTICO COMPLETO
 
@@ -305,10 +302,6 @@ $$
  C_s=C_f=\begin{bmatrix}2&0.3&0&0\end{bmatrix},\qquad D_s=D_f=0
 $$
 
-### ESPACIO PARA FIGURA 03 · ECUACIONES INTEGRODIFERENCIALES
-
-<!-- ![Bloques de integradores](integradores.png) -->
-
 ## 07 / ANÁLISIS DINÁMICO Y ERROR EN ESTADO ESTACIONARIO
 
 ### 9. Error en lazo abierto ante escalón unitario
@@ -416,64 +409,6 @@ $$
 
 La respuesta periódica no converge a un valor constante; por eso el error estacionario de escalón y el error de seguimiento periódico se analizan por separado.
 
-## 08 / SIMULACIÓN EN MATLAB Y SIMULINK
-
-**Configuración:** entrada sinusoidal desplazada, intervalo de 0 a 12 s, solver `ode15s` y paso máximo de `1e-3` s.
-
-```matlab
-clc; clear; close all;
-warning('off','all')
-modelo = 'Proyecto1';
-open_system(modelo)
-parameters.StopTime = '12';
-parameters.Solver = 'ode15s';
-parameters.MaxStep = '1e-3';
-parameters.ReturnWorkspaceOutputs = 'on';
-x = sim(modelo,parameters);
-```
-
-### ESPACIO PARA FIGURA 04 · SCOPE DE SIMULINK
-
-<!-- Pegar captura de las seis señales del Scope -->
-
-*Figura 04. Comparación de la entrada, los circuitos RLC, las ecuaciones integrodiferenciales y el tratamiento PID.*
-
-### ESPACIO PARA FIGURA 05 · CUADERNILLO MATLAB
-
-<!-- Pegar gráfica de las cuatro señales del cuadernillo -->
-
-*Figura 05. Entrada, control, caso y tratamiento PID.*
-
-## 09 / DISEÑO DEL CONTROLADOR PID
-
-La respuesta del pulmón sano se utiliza como referencia del tratamiento:
-
-$$
-e(t)=V_{s,control}(t)-V_{s,PID}(t)
-$$
-
-$$
-C(s)=K_p+\frac{K_i}{s}+K_d\frac{Ns}{s+N}
-$$
-
-| Ganancia | Valor empleado |
-|:--|--:|
-| Proporcional `Kp` | 100000 |
-| Integral `Ki` | 0.0761 |
-| Derivativa `Kd` | 99359 |
-| Filtro derivativo `N` | 50108 |
-
-La función de transferencia del lazo cerrado respecto a la referencia es:
-
-$$
-T(s)=\frac{C(s)G_f(s)}{1+C(s)G_f(s)}
-$$
-
-$$
-\frac{V_{s,PID}(s)}{V_e(s)}=G_s(s)T(s)
-$$
-
-Para una referencia constante y un lazo estable, la acción integral permite obtener un error estacionario teórico nulo. Para la referencia periódica permanece un pequeño error de seguimiento.
 
 ### Desarrollo algebraico del controlador y del error
 
@@ -529,38 +464,9 @@ $$
 
 Los errores reportados proceden de la sintonización previa a redondear las ganancias; pueden variar ligeramente con el paso de simulación.
 
-### ESPACIO PARA FIGURA 06 · CONTROLADOR PID
 
-<!-- Pegar captura del controlador y lazo cerrado -->
 
-## 10 / VERIFICACIÓN EN PYTHON
-
-Se utilizan las bibliotecas `numpy`, `math`, `control` y `matplotlib`.
-
-```python
-import numpy as np
-import control as ctrl
-
-sysControl = ctrl.tf([0.3, 2], [0.0192, 0.2968, 1.578, 3.72, 4.5])
-sysCaso = ctrl.tf([0.3, 2], [0.15, 1.985, 7.305, 12.7, 7.5])
-Kp, Ki, Kd, Nf = 100000, 0.0761, 99359, 50108
-s = ctrl.tf('s')
-C_pid = Kp + Ki/s + Kd*Nf*s/(s+Nf)
-sysTratamiento = ctrl.feedback(ctrl.series(C_pid, sysCaso), 1)
-t = np.linspace(0, 12, 12001)
-u = 0.5*(1-np.cos(2*np.pi*0.25*t))
-_, Control = ctrl.forced_response(sysControl, t, u)
-_, Caso = ctrl.forced_response(sysCaso, t, u)
-_, Tratamiento = ctrl.forced_response(sysTratamiento, t, Control)
-```
-
-### ESPACIO PARA FIGURA 07 · GRÁFICA PYTHON
-
-<!-- Pegar gráfica de Python -->
-
-*Figura 07. Comparación de las cuatro señales: entrada, control, caso y tratamiento.*
-
-## 11 / RESULTADOS Y EVIDENCIA
+## 8 / RESULTADOS Y EVIDENCIA
 
 | Escenario | Resultado del modelo |
 |:--|:--|
@@ -570,31 +476,15 @@ _, Tratamiento = ctrl.forced_response(sysTratamiento, t, Control)
 | Ecuaciones integrodiferenciales | Superposición visual con los circuitos correspondientes |
 | Tratamiento PID | Aproximación visual a la respuesta del control |
 
-### Indicadores de seguimiento reportados en MATLAB
 
-| Indicador | Resultado |
-|:--|--:|
-| Error máximo absoluto | 1.7889 × 10⁻⁵ |
-| RMSE | 1.0703 × 10⁻⁵ |
 
-Los indicadores corresponden a la optimización numérica reportada, no a una medición experimental. Las ganancias elevadas requieren una evaluación adicional de robustez, ruido y saturación antes de considerar una implementación física.
-
-### ESPACIO PARA FIGURA 08 · OSCILOSCOPIO (SI APLICA)
-
-<!-- Pegar evidencia experimental si se dispone de ella -->
-
-*Figura 08. Evidencia de laboratorio, si está disponible.*
-
-## 12 / CONCLUSIONES
+## 9 / CONCLUSIONES
 
 El circuito eléctrico equivalente permitió representar la dinámica respiratoria mediante un sistema de cuarto orden. La comparación entre control y caso mostró diferencias en la amplitud y dinámica de la respuesta. Las ecuaciones integrodiferenciales permitieron reproducir visualmente las respuestas de los circuitos en Simulink. El controlador PID aproximó la respuesta del caso a la referencia sana con un error de seguimiento reducido en la optimización numérica. MATLAB, Simulink, Python y BioRender complementan el análisis y su interpretación. Los resultados tienen alcance académico y no constituyen una validación clínica ni una propuesta terapéutica para la fibrosis pulmonar.
 
-## 13 / REFERENCIAS
+## 10 / REFERENCIAS
 
 1. Valle Trujillo, P. A. (2026). *Modelado de Sistemas Fisiológicos (IBF-1020)*. Material de la asignatura, Instituto Tecnológico de Tijuana.
-2. [Repositorio académico MSF-IBF1020](https://github.com/DrPaulValle/MSF-IBF1020).
-3. [MathWorks — Control System Toolbox](https://www.mathworks.com/products/control.html).
-4. [Python Control Systems Library](https://python-control.readthedocs.io/).
 
 ---
 
